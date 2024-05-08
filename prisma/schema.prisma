@@ -16,8 +16,35 @@ model User {
   password   String
   role       String
   isVerified Boolean  @default(false)
+  admin      Admin?   @relation(fields: [adminId], references: [id])
+  adminId    String?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now())
 
   @@map("users")
+}
+
+model Admin {
+  id           String   @id @default(uuid())
+  email        String
+  username     String
+  mobileNumber String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
+  users        User[]
+
+  @@map("admins")
+}
+
+model Service {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+  benefits  String[]
+  features  String[]
+  image     Json[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+
+  @@map("services")
 }

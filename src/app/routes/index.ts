@@ -1,5 +1,5 @@
-// import express from 'express';
-// import { AuthRoutes } from '../modules/auth/auth.routes';
+import express from 'express';
+import { AuthRoutes } from '../modules/auth/auth.routes';
 // import { brandRoutes } from '../modules/brand/brand.routes';
 // import { categoryRoutes } from '../modules/category/category.routes';
 // // import { paymentRoutes } from '../modules/payment/payment.routes';
@@ -10,23 +10,22 @@
 // import { orderRoutes } from '../modules/order/order.routes';
 // import { PaymentRoutes } from '../modules/payment/payment.routes';
 // import { productRoutes } from '../modules/product/product.routes';
-// import { UserRoutes } from '../modules/user/user.routes';
+import { UserRoutes } from '../modules/user/user.routes';
 // import { zoneRoutes } from '../modules/zone/zone.routes';
 
-// const router = express.Router();
+const router = express.Router();
 
-// const moduleRoutes = [
-//   // ... routes
-//   {
-//     path: '/users',
-//     route: UserRoutes,
-//   },
-//   {
-//     path: '/auth',
-//     route: AuthRoutes,
-//   },
+const moduleRoutes = [
+  // ... routes
+  {
+    path: '/users',
+    route: UserRoutes,
+  },
+  {
+    path: '/auth',
+    route: AuthRoutes,
+  },
+];
 
-// ];
-
-// moduleRoutes.forEach(route => router.use(route.path, route.route));
-// export default router;
+moduleRoutes.forEach(route => router.use(route.path, route.route));
+export default router;
